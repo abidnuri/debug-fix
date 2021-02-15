@@ -139,3 +139,10 @@ searchBtn.addEventListener('click', function () {
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+// search when enter clicked
+search.addEventListener("keypress", function (event) {
+  if (event.key == "Enter") {
+    searchBtn.click();
+  }
+});
