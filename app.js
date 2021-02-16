@@ -19,14 +19,20 @@ const KEY = '15674931-a9d714b6e9d654524df198e00&q';
 const showImages = (images) => {
   imagesArea.style.display = 'block';
   gallery.innerHTML = '';
-  // show gallery title
-  galleryHeader.style.display = 'flex';
-  images.forEach(image => {
-    let div = document.createElement('div');
-    div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
-    gallery.appendChild(div);
-  });
+  if (images == 0) {
+    gallery.innerHTML = `
+  <h2 class="text-danger">Sorry! No image Found.</h2>
+  `;
+  } else {
+    // show gallery title
+    galleryHeader.style.display = 'flex';
+    images.forEach(image => {
+      let div = document.createElement('div');
+      div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
+      div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+      gallery.appendChild(div);
+    });
+  }
   toggleSpinner();
 };
 
@@ -42,7 +48,9 @@ const getImages = (query) => {
     toggleSpinner();
     fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
       .then(response => response.json())
-      .then(data => showImages(data.hits))
+      .then(data => {
+        showImages(data.hits)
+      })
   }
 }
 
@@ -99,7 +107,7 @@ const createSlider = () => {
     duration = 1000;
     let negativeDuration = document.getElementById('sliders');
     negativeDuration.innerHTML = `
-    <p>Sorry! duration can't be negative. It's Sets the default value.</p>
+    <p class="text-danger">Sorry! duration can't be negative. It's Sets the default value.</p>
     `;
     sliders.forEach(slide => {
       let item = document.createElement('div')
