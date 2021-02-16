@@ -4,6 +4,8 @@ const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
+
+
 // selected image 
 let sliders = [];
 
@@ -28,9 +30,17 @@ const showImages = (images) => {
 };
 
 const getImages = (query) => {
-  fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
-    .then(response => response.json())
-    .then(data => showImages(data.hits))
+  let searchInput = document.getElementById('search').value;
+  if (searchInput == "") {
+    gallery.innerHTML = `
+  <h2 class="text-danger">Sorry! Put Something to Search.</h2>
+  `;
+  }
+  else {
+    fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
+      .then(response => response.json())
+      .then(data => showImages(data.hits))
+  }
 }
 
 let slideIndex = 0;
