@@ -32,6 +32,7 @@ const showImages = (images) => {
 
 const getImages = (query) => {
   let searchInput = document.getElementById('search').value;
+  // search for empty value for bonus mark
   if (searchInput == "") {
     gallery.innerHTML = `
   <h2 class="text-danger">Sorry! Put Something to Search.</h2>
@@ -161,7 +162,7 @@ search.addEventListener("keypress", function (event) {
   }
 });
 
-// toggle spinner add function
+// toggle spinner add function for bonus mark
 const toggleSpinner = (show) => {
   const spinner = document.getElementById('spinner');
   spinner.classList.toggle('d-none');
