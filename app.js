@@ -170,6 +170,12 @@ search.addEventListener("keypress", function (event) {
   }
 });
 
+// create slider when enter clicked
+duration.addEventListener('keypress', function (event) {
+  if (event.key == 'Enter') {
+    sliderBtn.click();
+  }
+})
 // toggle spinner add function for bonus mark
 const toggleSpinner = (show) => {
   const spinner = document.getElementById('spinner');
