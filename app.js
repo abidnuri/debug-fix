@@ -103,7 +103,7 @@ const createSlider = () => {
       slideIndex++;
       changeSlide(slideIndex);
     }, duration);
-    alert('Slider Complete. Congratulations.');
+    // alert('Slider Complete. Congratulations.');
   } else {
     duration = 1000;
     let negativeDuration = document.getElementById('sliders');
