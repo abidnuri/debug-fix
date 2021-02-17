@@ -192,16 +192,6 @@ const toggleSpinner = (show) => {
 }
 
 // dismiss button for bonus mark
-const backButton = () => {
-  document.getElementById('backButton').addEventListener('click', function () {
-    // const back = document.getElementById('slider-all');
-    // back.style.display = 'none';
-    // document.querySelector('.main').style.display = 'none';
-    // clearInterval(timer);
-    // const search = document.getElementById('search');
-    // getImages(search.value)
-    // sliders.length = 0;
-    searchingThing();
-  })
-}
-backButton();
+document.getElementById('backButton').addEventListener('click', function () {
+  searchingThing();
+})
