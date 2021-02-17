@@ -123,7 +123,7 @@ const createSlider = () => {
       slideIndex++;
       changeSlide(slideIndex);
     }, duration);
-    alert(`Congratulation.
+    confirm(`Congratulation.
   Duration can't be negative. 
   It's Sets the default value. 
   `)
@@ -157,12 +157,16 @@ const changeSlide = (index) => {
 }
 
 searchBtn.addEventListener('click', function () {
+  searchingThing();
+})
+
+const searchingThing = () => {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
   getImages(search.value)
   sliders.length = 0;
-})
+}
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
@@ -175,7 +179,7 @@ search.addEventListener("keypress", function (event) {
   }
 });
 
-// create slider when enter clicked
+// create slider when enter clicked for bonus mark
 duration.addEventListener('keypress', function (event) {
   if (event.key == 'Enter') {
     sliderBtn.click();
@@ -186,3 +190,18 @@ const toggleSpinner = (show) => {
   const spinner = document.getElementById('spinner');
   spinner.classList.toggle('d-none');
 }
+
+// dismiss button for bonus mark
+const backButton = () => {
+  document.getElementById('backButton').addEventListener('click', function () {
+    // const back = document.getElementById('slider-all');
+    // back.style.display = 'none';
+    // document.querySelector('.main').style.display = 'none';
+    // clearInterval(timer);
+    // const search = document.getElementById('search');
+    // getImages(search.value)
+    // sliders.length = 0;
+    searchingThing();
+  })
+}
+backButton();
