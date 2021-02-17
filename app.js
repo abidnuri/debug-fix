@@ -103,6 +103,7 @@ const createSlider = () => {
       slideIndex++;
       changeSlide(slideIndex);
     }, duration);
+    alert('Slider Complete. Congratulations.');
   } else {
     duration = 1000;
     let negativeDuration = document.getElementById('sliders');
@@ -122,6 +123,10 @@ const createSlider = () => {
       slideIndex++;
       changeSlide(slideIndex);
     }, duration);
+    alert(`Congratulation.
+  Duration can't be negative. 
+  It's Sets the default value. 
+  `)
   }
 }
 
