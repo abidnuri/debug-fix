@@ -123,10 +123,10 @@ const createSlider = () => {
       slideIndex++;
       changeSlide(slideIndex);
     }, duration);
-    confirm(`Congratulation.
-  Duration can't be negative. 
-  It's Sets the default value. 
-  `)
+  //   confirm(`Congratulation.
+  // Duration can't be negative. 
+  // It's Sets the default value. 
+  // `)
   }
 }
 
